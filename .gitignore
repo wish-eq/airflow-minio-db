@@ -3,3 +3,5 @@
 /minio_data
 
 /airflow-env
+
+docker-compose.yaml
