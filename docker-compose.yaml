@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  minio:
+    image: minio/minio
+    container_name: minio
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=admin123
+    ports:
+      - "9000:9000"  # Minio API Port
+      - "9001:9001"  # Minio Console (Web UI) Port
+    volumes:
+      - ./minio_data:/data  # Local directory to store Minio data
+    command: server /data --console-address ":9001"
+
+  # Optionally, add mc (Minio Client) as a service
+  minio-client:
+    image: minio/mc
+    container_name: minio-client
+    environment:
+      - MINIO_ROOT_USER=admin
+      - MINIO_ROOT_PASSWORD=admin123
+    entrypoint: ["sleep", "infinity"]  # Keeps the container running, for later use

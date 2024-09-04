@@ -1,0 +1,5 @@
+.env
+
+/minio_data
+
+/airflow-env
