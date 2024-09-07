@@ -5,12 +5,13 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Get scripts path from the .env file and add it to sys.path
-scripts_path = os.getenv('SCRIPTS_PATH')
-if scripts_path:
-    sys.path.append(scripts_path)
-else:
-    raise ValueError("SCRIPTS_PATH not found in the environment variables")
+# # Get scripts path from the .env file and add it to sys.path
+# scripts_path = os.getenv('SCRIPTS_PATH')
+# if scripts_path:
+#     sys.path.append(scripts_path)
+# else:
+#     raise ValueError("SCRIPTS_PATH not found in the environment variables")
+sys.path.append('/Users/wishmarukaptak/internship/TCC/POC/airflow-minio-db/scripts')
 
 from db_minio_sync import sync_db_to_minio
 from airflow import DAG

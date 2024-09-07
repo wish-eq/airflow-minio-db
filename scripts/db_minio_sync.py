@@ -18,7 +18,7 @@ def extract_data():
         dbname=os.getenv("DB_NAME")
     )
     cursor = db_connection.cursor()
-    cursor.execute("SELECT * FROM products")
+    cursor.execute("SELECT * FROM users")
     rows = cursor.fetchall()
 
     # Get column names from cursor
